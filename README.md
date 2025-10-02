@@ -1,14 +1,18 @@
 Real-Time Analytics Service
 A NestJS-based backend application for tracking and broadcasting real-time user events. It supports JWT authentication, PostgreSQL for data storage, and WebSocket (Socket.IO) for live event streaming to connected clients.
 
-for db 
+PostgreSQL User & Database Setup
+
+The following commands create a new PostgreSQL user and database, 
+and grant the necessary privileges for application access.
+(
 CREATE USER nest_user WITH ENCRYPTED PASSWORD 'password123';
 CREATE DATABASE analytics_db;
 GRANT ALL PRIVILEGES ON DATABASE analytics_db TO nest_user;
 \c analytics_db
 GRANT ALL PRIVILEGES ON SCHEMA public TO nest_user;
 ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON TABLES TO nest_user;
-ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO nest_user;
+ALTER DEFAULT PRIVILEGES IN SCHEMA public GRANT ALL ON SEQUENCES TO nest_user;)
 
 
 Features
@@ -55,4 +59,5 @@ Connect via Socket.IO
 Listen for real-time events on channel: event
 
 Emit new events to newEvent
+
 
